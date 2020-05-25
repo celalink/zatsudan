@@ -1,9 +1,9 @@
 <template>
   <v-app id="inspire">
-    <div class="mainText">{{getTheme()}}</div>
-    <div class="text-right">
+    <p class="mainText">{{getTheme()}}</p>
+    <p class="text-right">
       <v-btn x-large color="blue" href="/load" dark>雑談テーマを変更する</v-btn>
-    </div>
+    </p>
   </v-app>
 </template>
 
@@ -39,9 +39,10 @@ export default {
 <style>
 .mainText {
   font-size:5.46vw;
+  width: 75vw;
   position: absolute;
   top: 40%; /*親要素を起点に上から40%*/
-  left: 50%;  /*親要素を起点に左から50%*/
+  left: 55%;  /*親要素を起点に左から50%*/
   transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
   -webkit-transform: translateY(-50%) translateX(-50%);
 }
