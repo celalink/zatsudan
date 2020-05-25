@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-content>
     <v-app-bar 
       color="#ffb2d8"
     >
@@ -58,48 +58,17 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-
-    <!-- Theme表示部分-->
-    <router-view :itemList="items"/>
-    <!-- Footer表示部分 -->
-    <!-- <Footer/> -->
-  </v-app>
+  </v-content>
 </template>
 
 <script>
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-// import Card from './Card';
-// import Footer from './Footer';
-import * as firebase from "firebase/app";
 
 export default {
   name: 'App',
 
-  components: {
-    // Card,
-    // Footer,
-  },
   data: () => ({
     drawer: false,
-    items:[],
   }),
-  created() {
-    console.log("画面初期起動時");
-    this.getThemeList();
-    console.log("雑談ネタ取得完了")
-    console.log(this.items)
-    
-  },
-  methods: {
-    async getThemeList() {
-      var db = firebase.firestore();
-      await db.collection("theme").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          var docItem = doc.data()
-          this.items.push(docItem)
-        });
-      });
-    }
-  }
 };
 </script>
