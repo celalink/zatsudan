@@ -48,13 +48,6 @@
             <v-list-item-title>利用規約</v-list-item-title>
           </v-list-item>
 
-          <v-list-item href="/maintenance">
-            <v-list-item-icon>
-              <v-icon>mdi-wrench</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>メンテナンス画面</v-list-item-title>
-          </v-list-item>
-
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -68,16 +61,12 @@
 
 <script>
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-// import Card from './Card';
-// import Footer from './Footer';
 import * as firebase from "firebase/app";
 
 export default {
   name: 'App',
 
   components: {
-    // Card,
-    // Footer,
   },
   data: () => ({
     drawer: false,
