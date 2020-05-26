@@ -4,13 +4,11 @@
         <p>{{message}}</p>
         <p v-if="items.length==0">登録されている雑談テーマがありません</p>
         <p v-else>登録済雑談テーマ件数:{{items.length}}件</p>
-        <!--
         <ul>
             <li v-for="item in items" :key="item.id">
                {{ item.theme }}
             </li>
         </ul>
-        -->
 
         <v-file-input multiple label="File input" @change="loadCsvFile"></v-file-input>
 

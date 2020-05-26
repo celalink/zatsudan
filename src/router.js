@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from './components/Main'
+import Start from './components/Start'
 import Card from './components/Card'
 import Top from './components/Top'
 import Load from './components/Load'
@@ -23,11 +24,19 @@ const router = new Router({
       children:[
         {
           path: "",
-          component: Card 
+          component: Start 
+        },
+        {
+          path: '/main/card',
+          name: 'card',
+          component: Card,
+          props: true
         },
         {
           path: '/load',
-          component:Load
+          name: 'load', 
+          component:Load,
+          props: true
         },
         {
           path: '/howto',

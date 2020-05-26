@@ -54,41 +54,19 @@
 
     <!-- Theme表示部分-->
     <router-view :itemList="items"/>
-    <!-- Footer表示部分 -->
-    <!-- <Footer/> -->
   </v-app>
 </template>
 
 <script>
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import * as firebase from "firebase/app";
 
 export default {
   name: 'App',
-
-  components: {
-  },
   data: () => ({
     drawer: false,
     items:[],
   }),
-  created() {
-    console.log("画面初期起動時");
-    this.getThemeList();
-    console.log("雑談ネタ取得完了")
-    console.log(this.items)
-    
+  components: {
   },
-  methods: {
-    async getThemeList() {
-      var db = firebase.firestore();
-      await db.collection("theme").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          var docItem = doc.data()
-          this.items.push(docItem)
-        });
-      });
-    }
-  }
 };
 </script>

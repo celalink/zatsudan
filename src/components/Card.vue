@@ -1,9 +1,10 @@
 <template>
   <v-app id="inspire">
-    <p class="mainText">{{getTheme()}}</p>
     <p class="text-right">
-      <v-btn x-large color="blue" href="/load" dark>雑談テーマを変更する</v-btn>
+      <v-btn x-large color="blue" @click="nextTheme" dark>雑談テーマを変更する</v-btn>
     </p>
+    <p class="mainText">{{getTheme()}}</p>
+    <p class="text-right">雑談ジャンル：{{getType()}}</p>
   </v-app>
 </template>
 
@@ -13,25 +14,32 @@ export default {
   vuetify,
   data () {
     return {
-      theme:"",
+      num: 0,
+      type: "",
+      theme: "",
     }
   },
   props: {
     itemList:null,
   },
+  created() {
+    console.log("雑談表示")
+    if (this.itemList.length != 0) {
+      var min = 0;
+      var max = this.itemList.length;
+
+      this.num = Math.floor( Math.random() * (max + 1 - min) ) + min
+    }
+  },
   methods: {
+    nextTheme() {
+      this.$router.push({name:"load", params: {itemList: this.itemList}})
+    },
     getTheme() {
-      if (this.itemList.length == 0) {
-        this.theme = ""
-
-      } else {
-        var min = 0;
-        var max = this.itemList.length;
-
-        var num = Math.floor( Math.random() * (max + 1 - min) ) + min
-        this.theme = this.itemList[num].theme
-      }
-      return this.theme
+      return this.itemList[this.num].theme
+    },
+    getType() {
+      return this.itemList[this.num].theme_type
     },
   }
 }
