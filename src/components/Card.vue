@@ -3,13 +3,30 @@
     <p class="text-right">
       <v-btn x-large color="blue" @click="nextTheme" dark>雑談テーマを変更する</v-btn>
     </p>
-    <p class="mainText">{{getTheme()}}</p>
-    <p class="text-right">雑談ジャンル：{{getType()}}</p>
+    <v-container>
+      <v-row>
+        <v-chip
+          class="ma-2"
+          disabled
+          label
+        >
+          雑談ジャンル：{{getType()}}
+        </v-chip>
+      </v-row>
+      <v-row>
+        <p class="mainText">{{getTheme()}}</p>
+      </v-row>
+      <v-row>
+        <ShareTweetBtn :pageTitle="theme"/>
+        <!-- ShareFacebookBtn :pageTitle="theme" /--> 
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
 <script>
 import vuetify from '../plugins/vuetify';
+import ShareTweetBtn from './ShareTweetBtn';
 export default {
   vuetify,
   data () {
@@ -18,6 +35,9 @@ export default {
       type: "",
       theme: "",
     }
+  },
+  components: {
+    ShareTweetBtn,
   },
   props: {
     itemList:null,
@@ -36,10 +56,12 @@ export default {
       this.$router.push({name:"load", params: {itemList: this.itemList}})
     },
     getTheme() {
-      return this.itemList[this.num].theme
+      this.theme = this.itemList[this.num].theme
+      return this.theme
     },
     getType() {
-      return this.itemList[this.num].theme_type
+      this.type = this.itemList[this.num].theme_type
+      return this.type
     },
   }
 }
