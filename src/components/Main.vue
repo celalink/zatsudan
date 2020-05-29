@@ -48,6 +48,13 @@
             <v-list-item-title>利用規約</v-list-item-title>
           </v-list-item>
 
+          <v-list-item href="https://forms.gle/ZX19uJTTFCrz8GVJ7" target="_blank">
+           <v-list-item-icon>
+              <v-icon>mdi-email</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>雑談ネタを投稿する</v-list-item-title> 
+          </v-list-item>
+
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
