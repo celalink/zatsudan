@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <v-app-bar 
-      color="#ffffe5"
+      color="#014c86"
+      dark
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>Menu</v-toolbar-title>
+      <v-toolbar-title color="#FFFFFF">Menu</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer
