@@ -49,6 +49,10 @@ export default {
       var max = this.itemList.length;
 
       this.num = Math.floor( Math.random() * (max + 1 - min) ) + min
+      console.log(this.itemList[this.num])
+    } else {
+      alert("雑談ネタの取得に失敗したのでトップページへ戻ります。");
+      this.$router.push("/")
     }
   },
   methods: {
@@ -76,5 +80,7 @@ export default {
   transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
   -webkit-transform: translateY(-50%) translateX(-50%);
 }
-
+.cardMain {
+  background-color: #B5C7D3;
+}
 </style>
