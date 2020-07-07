@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn icon color="cyan"
-        @click="windowOpen(twitterShareLink)"
+      @click="windowOpen(twitterShareLink)"
     >
       <v-icon>mdi-twitter</v-icon>
     </v-btn>
@@ -22,31 +22,31 @@ export default {
       twitter: process.env.VUE_APP_TWITTER_ACCOUNT,
       hashtag: process.env.VUE_APP_SITE_NAME,
       twitterLink: 'https://twitter.com/intent/tweet?url={0}&text={1}&hashtags={2}&lang=ja'
-    }
+    };
   },
   computed: {
     twitterShareLink() {
       // link, url{0}, text{1}, hashtags{2}
-      return this.formatByArr(this.twitterLink, this.url, this.twitterText, this.hashtag)
+      return this.formatByArr(this.twitterLink, this.url, this.twitterText, this.hashtag);
     },
     twitterText() {
-        return "【みんなに聞いてみよう！】" + this.pageTitle
+      return "【みんなに聞いてみよう！】" + this.pageTitle;
     }
   },
   methods: {
     formatByArr(msg) {
-      let args = []
+      let args = [];
       for (let i = 1; i < arguments.length; i++) {
-        args[i - 1] = arguments[i]
+        args[i - 1] = arguments[i];
       }
-      args = args.map(x => encodeURIComponent(x))
+      args = args.map(x => encodeURIComponent(x));
       return msg.replace(/\{(\d+)\}/g, (m, k) => {
-        return args[k]
-      })
+        return args[k];
+      });
     },
     windowOpen(link) {
-      return window.open(link, '_blank', 'top=100,left=100,width=600,height=500')
+      return window.open(link, '_blank', 'top=100,left=100,width=600,height=500');
     }
   }
-}
+};
 </script>
