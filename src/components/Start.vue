@@ -76,47 +76,47 @@ export default {
       drunkItems:[],
       bizItems:[],
       imagePath: require('@/assets/img/background01.jpg'),
-    }
+    };
   },
   created() {
-    console.log("雑談ジャンル選択")
+    console.log("雑談ジャンル選択");
     // 全雑談種別を取得
-    this.getThemeAllList()
+    this.getThemeAllList();
     // 飲み会用の雑談を取得
-    this.getThemeList('プライベート', this.drunkItems)
-    this.getThemeList('恋愛', this.drunkItems)
-    this.getThemeList('飲み会', this.drunkItems)
+    this.getThemeList('プライベート', this.drunkItems);
+    this.getThemeList('恋愛', this.drunkItems);
+    this.getThemeList('飲み会', this.drunkItems);
     // ビジネス用の雑談を取得
-    this.getThemeList('ビジネス', this.bizItems)
+    this.getThemeList('ビジネス', this.bizItems);
   },
   methods: {
     async getThemeAllList() {
       var db = firebase.firestore();
       await db.collection("theme").get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          var docItem = doc.data()
-          this.items.push(docItem)
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            var docItem = doc.data();
+            this.items.push(docItem);
+          });
         });
-      });
     },
     async getThemeList(type, arr) {
       var db = firebase.firestore();
       await db.collection("theme").where('theme_type', '==', type).get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          var docItem = doc.data()
-          arr.push(docItem)
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            var docItem = doc.data();
+            arr.push(docItem);
+          });
         });
-      });
     },
     start(arr) {
-        console.log(arr)
-        // this.$router.push({path:"load", params: {itemList: arr}}) <- pathだとpropが渡せない
-        this.$router.push({name:"load", params: {itemList: arr}})
+      console.log(arr);
+      // this.$router.push({path:"load", params: {itemList: arr}}) <- pathだとpropが渡せない
+      this.$router.push({name:"load", params: {itemList: arr}});
     }
   },
-}
+};
 </script>
 <style>
 .start {

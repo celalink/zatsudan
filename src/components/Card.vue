@@ -20,6 +20,7 @@
         <ShareTweetBtn :pageTitle="theme"/>
         <!-- ShareFacebookBtn :pageTitle="theme" /--> 
       </v-row>
+      <Adsence/>
     </v-container>
   </v-app>
 </template>
@@ -27,6 +28,7 @@
 <script>
 import vuetify from '../plugins/vuetify';
 import ShareTweetBtn from './ShareTweetBtn';
+import Adsence from './Adsense';
 export default {
   vuetify,
   data () {
@@ -34,41 +36,42 @@ export default {
       num: 0,
       type: "",
       theme: "",
-    }
+    };
   },
   components: {
     ShareTweetBtn,
+    Adsence
   },
   props: {
     itemList:null,
   },
   created() {
-    console.log("雑談表示")
+    console.log("雑談表示");
     if (this.itemList.length != 0) {
       var min = 0;
       var max = this.itemList.length;
 
-      this.num = Math.floor( Math.random() * (max + 1 - min) ) + min
-      console.log(this.itemList[this.num])
+      this.num = Math.floor( Math.random() * (max + 1 - min) ) + min;
+      console.log(this.itemList[this.num]);
     } else {
       alert("雑談ネタの取得に失敗したのでトップページへ戻ります。");
-      this.$router.push("/")
+      this.$router.push("/");
     }
   },
   methods: {
     nextTheme() {
-      this.$router.push({name:"load", params: {itemList: this.itemList}})
+      this.$router.push({name:"load", params: {itemList: this.itemList}});
     },
     getTheme() {
-      this.theme = this.itemList[this.num].theme
-      return this.theme
+      this.theme = this.itemList[this.num].theme;
+      return this.theme;
     },
     getType() {
-      this.type = this.itemList[this.num].theme_type
-      return this.type
+      this.type = this.itemList[this.num].theme_type;
+      return this.type;
     },
   }
-}
+};
 </script>
 <style>
 .mainText {

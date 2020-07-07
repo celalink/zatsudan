@@ -1,6 +1,6 @@
 <template>
-  <v-countent>
-    <div class="top">
+  <div class="top">
+    <v-countent>
       <v-container>
         <v-row justify="center">
           <h1>会話のきっかけにもう悩まない！<br>雑談ネタを提供する「HANASHIKA」</h1>
@@ -74,16 +74,16 @@
           <a href="">画像提供：pixabay</a>
         </v-row>
       </v-container>
-    </div>
-  </v-countent>
+    </v-countent>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'App',
   data() {
-      return {
-      }
+    return {
+    };
   },
   methods: {
     gotoMain() {
@@ -110,6 +110,7 @@ h1{
   background-blend-mode: overlay;
   background-size: cover;
   background-position: center;
+  height:100%;
 }
 .readMe {
   margin: 20px 0 20px 0;

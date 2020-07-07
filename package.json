@@ -46,7 +46,11 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "off",
+      "indent": ["error", 2],
+      "semi": ["error", "always"],
+      "semi-spacing": ["error", {"after": true, "before": false}],
+      "no-unreachable": "error"
     },
     "parserOptions": {
       "parser": "babel-eslint"
