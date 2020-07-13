@@ -11,7 +11,7 @@
 </template>
 <style>
 .ads {
-  min-width: 450px;
+  min-width: 380px;
   min-height: 150px;
   position: absolute;
   bottom: 0;
