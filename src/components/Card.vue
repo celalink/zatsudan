@@ -14,13 +14,15 @@
         </v-chip>
       </v-row>
       <v-row>
-        <p class="mainText">{{getTheme()}}</p>
+        <p class="mainText" :style="fontSize">{{getTheme()}}</p>
       </v-row>
       <v-row>
         <ShareTweetBtn :pageTitle="theme"/>
-        <!-- ShareFacebookBtn :pageTitle="theme" /--> 
+        <!-- ShareFacebookBtn :pageTitle="theme" /-->
       </v-row>
-      <Adsence/>
+      <v-row justify="center">
+        <Adsence/>
+      </v-row>
     </v-container>
   </v-app>
 </template>
@@ -45,14 +47,22 @@ export default {
   props: {
     itemList:null,
   },
+  computed: {
+    fontSize: function() {
+      let fontSize;
+      switch (this.$vuetify.breakpoint.name) {
+      case 'xs': fontSize = "34px"; break;
+      default : fontSize = "5.46vw"; break;
+      }
+      return "font-size:" + fontSize;
+    }
+  },
   created() {
-    console.log("雑談表示");
     if (this.itemList.length != 0) {
       var min = 0;
       var max = this.itemList.length;
 
       this.num = Math.floor( Math.random() * (max + 1 - min) ) + min;
-      console.log(this.itemList[this.num]);
     } else {
       alert("雑談ネタの取得に失敗したのでトップページへ戻ります。");
       this.$router.push("/");
@@ -75,13 +85,14 @@ export default {
 </script>
 <style>
 .mainText {
-  font-size:5.46vw;
   width: 75vw;
   position: absolute;
   top: 40%; /*親要素を起点に上から40%*/
   left: 55%;  /*親要素を起点に左から50%*/
   transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
   -webkit-transform: translateY(-50%) translateX(-50%);
+  margin: 15px 15px 0 0;
+  font-weight: bold;
 }
 .cardMain {
   background-color: #B5C7D3;

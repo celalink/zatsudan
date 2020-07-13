@@ -71,7 +71,7 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-          <a href="">画像提供：pixabay</a>
+          <a href="https://pixabay.com/ja/" target="_blank">画像提供：pixabay</a>
         </v-row>
       </v-container>
     </v-countent>
