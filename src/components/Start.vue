@@ -79,7 +79,6 @@ export default {
     };
   },
   created() {
-    console.log("雑談ジャンル選択");
     // 全雑談種別を取得
     this.getThemeAllList();
     // 飲み会用の雑談を取得

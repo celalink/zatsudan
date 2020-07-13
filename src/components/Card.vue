@@ -18,9 +18,11 @@
       </v-row>
       <v-row>
         <ShareTweetBtn :pageTitle="theme"/>
-        <!-- ShareFacebookBtn :pageTitle="theme" /--> 
+        <!-- ShareFacebookBtn :pageTitle="theme" /-->
       </v-row>
-      <Adsence/>
+      <v-row justify="end">
+        <Adsence/>
+      </v-row>
     </v-container>
   </v-app>
 </template>
