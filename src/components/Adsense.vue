@@ -15,5 +15,6 @@
   min-height: 150px;
   position: absolute;
   bottom: 0;
+  margin-top: 15px;
 }
 </style>

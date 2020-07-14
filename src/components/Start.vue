@@ -3,6 +3,7 @@
     <h1>雑談テーマ選択</h1>
       <v-container>
         <v-row>
+          <v-col cols="2"></v-col>
           <v-col>
             <v-card
               class="mx-auto"
@@ -39,9 +40,11 @@
               </v-list-item>
             </v-card>
           </v-col>
+          <v-col cols="2"></v-col>
         </v-row>
 
         <v-row>
+          <v-col cols="2"></v-col>
           <v-col>
             <v-card
               class="mx-auto"
@@ -62,6 +65,7 @@
           </v-col>
           <v-col>
           </v-col>
+          <v-col cols="2"></v-col>
         </v-row>
       </v-container>
     </v-app>
