@@ -11,10 +11,9 @@
           <li>「毎回ただの愚痴発散の飲み会になってしまう」</li>
           <li>「合コンで何を話していいかわからない」</li>
           <li>「自己紹介のネタに１つ話題を付け加えたい」</li>
-          など雑談のネタに困っている人のために当アプリを作成いたしました。<br>
+          など雑談のネタに困っている方の悩みを解決します！<br>
           <br>
           <p>ブラウザ上で動作するためアプリをインストールせずに利用可能です。</p>
-          ※要望が多くなってきたらアプリ化も検討していく予定です。
         </div>
         <v-row justify="center">
           <v-btn class="startBtn" @click="gotoMain">すぐに開始する</v-btn>
@@ -25,11 +24,11 @@
           <v-col cols="auto">
             <v-card class="main-card">
               <v-card-title class="amber lighten-1">
-                <h2 class="display-1 mr-4 white--text font-weight-light">本アプリの概要</h2>
                 <v-icon
                     dark
                     size="42"
                 >mdi-home-outline</v-icon>
+                <h2 class="display-1 mr-4 white--text font-weight-light">本アプリの概要</h2>
               </v-card-title>
               <v-row>
                 <v-col style="margin: 20px 0 20px 0;">
@@ -99,10 +98,11 @@ h1{
 }
 .startBtn {
   height: 150px !important;
-  width: 250px !important;
-  background-color: #F5B895 !important;
+  width: 300px !important;
+  background-color: #F1EEE6 !important;
   font-size: 16px !important;
   margin: 20px 0 30px 0;
+  font-weight: bold;
 }
 .top {
   background-image: url("~@/assets/img/background01.jpg");
