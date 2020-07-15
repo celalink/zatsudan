@@ -1,6 +1,6 @@
 <template>
   <div class="top">
-    <v-countent>
+    <v-content>
       <v-container>
         <v-row justify="center">
           <h1>会話のきっかけにもう悩まない！<br>雑談ネタを提供する「HANASHIKA」</h1>
@@ -73,13 +73,12 @@
           <a href="https://pixabay.com/ja/" target="_blank">画像提供：pixabay</a>
         </v-row>
       </v-container>
-    </v-countent>
+    </v-content>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
   data() {
     return {
     };

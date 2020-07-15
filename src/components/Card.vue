@@ -17,7 +17,7 @@
         <p class="mainText" :style="fontSize">{{getTheme()}}</p>
       </v-row>
       <v-row>
-        <ShareTweetBtn :pageTitle="theme"/>
+        <ShareTweetBtn :pageTitle="theme" :themeType="type"/>
         <!-- ShareFacebookBtn :pageTitle="theme" /-->
       </v-row>
       <v-row justify="center">

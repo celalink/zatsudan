@@ -14,6 +14,9 @@ export default {
     pageTitle: {
       type: String,
       default: process.env.VUE_APP_SITE_NAME
+    },
+    themeType: {
+      type: String
     }
   },
   data() {
@@ -27,11 +30,12 @@ export default {
   computed: {
     twitterShareLink() {
       // link, url{0}, text{1}, hashtags{2}
-      return this.formatByArr(this.twitterLink, this.url, this.twitterText, this.hashtag);
+      const hashtags = this.hashtag + "," + this.themeType;
+      return this.formatByArr(this.twitterLink, this.url, this.twitterText, hashtags);
     },
     twitterText() {
-      return "【みんなに聞いてみよう！】" + this.pageTitle;
-    }
+      return "【みんなに質問】" + this.pageTitle;
+    },
   },
   methods: {
     formatByArr(msg) {
