@@ -11,13 +11,15 @@
     "@mdi/font": "^4.7.95",
     "core-js": "^3.4.4",
     "dns": "^0.2.2",
-    "firebase": "^7.7.0",
-    "firebase-admin": "^8.12.1",
+    "firebase": "^7.16.0",
+    "firebase-admin": "^8.13.0",
     "firebase-functions": "^3.6.1",
+    "firebaseui": "^4.5.2",
     "http2": "^3.3.7",
     "vue": "^2.6.10",
     "vue-adsense": "^1.0.1",
     "vue-router": "^3.1.6",
+    "vuelidate": "^0.7.5",
     "vuetify": "^2.1.0"
   },
   "devDependencies": {
@@ -47,9 +49,21 @@
     ],
     "rules": {
       "no-console": "off",
-      "indent": ["error", 2],
-      "semi": ["error", "always"],
-      "semi-spacing": ["error", {"after": true, "before": false}],
+      "indent": [
+        "error",
+        2
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "semi-spacing": [
+        "error",
+        {
+          "after": true,
+          "before": false
+        }
+      ],
       "no-unreachable": "error"
     },
     "parserOptions": {

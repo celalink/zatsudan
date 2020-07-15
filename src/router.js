@@ -1,15 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Main from './components/Main'
-import Start from './components/Start'
-import Card from './components/Card'
-import Top from './components/Top'
-import Load from './components/Load'
-import Howto from './components/HowTo'
-import Policy from './components/Policy'
-import Maintenance from './components/Maintenance'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Main from './components/Main';
+import Login from './components/Login';
+import Start from './components/Start';
+import Card from './components/Card';
+import Top from './components/Top';
+import Load from './components/Load';
+import Howto from './components/HowTo';
+import Policy from './components/Policy';
+import Maintenance from './components/Maintenance';
+import * as firebase from "firebase/app";
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
@@ -19,12 +21,17 @@ const router = new Router({
       component: Top,
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
       path: '/main',
       component: Main,
       children:[
         {
           path: "",
-          component: Start 
+          component: Start
         },
         {
           path: '/main/card',
@@ -34,7 +41,7 @@ const router = new Router({
         },
         {
           path: '/load',
-          name: 'load', 
+          name: 'load',
           component:Load,
           props: true
         },
@@ -50,16 +57,36 @@ const router = new Router({
     },
     {
       path: '/maintenance',
+      name: 'Maintenance',
       component: Maintenance,
+      meta: { requiresAuth: true },
     },
   ],
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition
+      return savedPosition;
     } else {
-      return { x: 0, y: 0 }
+      return { x: 0, y: 0 };
     }
   },
-})
+});
 
-export default router
+// メンテナンス画面を開く場合はログインが必須
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth) {
+    // 認証状態を取得
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        next();
+      } else {
+        // 認証されていない場合、認証画面へ
+        next({ name: 'Login' });
+      }
+    });
+  } else {
+    next();
+  }
+});
+
+export default router;
