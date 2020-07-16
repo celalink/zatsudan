@@ -10,7 +10,11 @@
               max-width="344"
               @click="start(items)"
             >
-              <v-img src="/img/background01.jpg" height="150px"></v-img>
+              <v-img src="/img/background01.jpg" height="150px">
+                <template v-slot:placeholder>
+                  <Progress />
+                </template>
+              </v-img>
               <v-list-item three-line>
                 <v-list-item-content>
                   <v-list-item-title class="headline mb-1">すべてのジャンルから選択</v-list-item-title>
@@ -28,7 +32,11 @@
               max-width="344"
               @click="start(drunkItems)"
             >
-              <v-img src="/img/background02.jpg" height="150px"></v-img>
+              <v-img src="/img/background02.jpg" height="150px">
+                <template v-slot:placeholder>
+                  <Progress />
+                </template>
+              </v-img>
               <v-list-item three-line>
               <v-list-item-content>
                   <v-list-item-title class="headline mb-1">飲み会での雑談テーマ</v-list-item-title>
@@ -44,14 +52,17 @@
         </v-row>
 
         <v-row>
-          <v-col cols="2"></v-col>
           <v-col>
             <v-card
               class="mx-auto"
               max-width="344"
               @click="start(bizItems)"
             >
-              <v-img src="/img/background03.jpg" height="150px"></v-img>
+              <v-img src="/img/background03.jpg" height="150px">
+                <template v-slot:placeholder>
+                  <Progress />
+                </template>
+              </v-img>
               <v-list-item three-line>
               <v-list-item-content>
                   <v-list-item-title class="headline mb-1">ビジネスでの雑談テーマ</v-list-item-title>
@@ -63,15 +74,15 @@
               </v-list-item>
             </v-card>
           </v-col>
-          <v-col>
-          </v-col>
-          <v-col cols="2"></v-col>
+          <v-col cols="4"></v-col>
         </v-row>
       </v-container>
     </v-app>
 </template>
 <script>
 import * as firebase from "firebase/app";
+import Progress from './ProgressCircle';
+
 export default {
   data() {
     return {
@@ -81,6 +92,9 @@ export default {
       bizItems:[],
       imagePath: require('@/assets/img/background01.jpg'),
     };
+  },
+  components: {
+    Progress
   },
   created() {
     // 全雑談種別を取得
