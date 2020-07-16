@@ -11,6 +11,7 @@
 </template>
 <style>
 .ads {
+  text-align: center;
   width: 95%;
   min-height: 150px;
   position: absolute;
