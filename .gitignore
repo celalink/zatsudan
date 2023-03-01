@@ -1,4 +1,5 @@
 .DS_Store
+.history/
 node_modules
 /dist
 
@@ -19,3 +20,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+firebase-debug.log
